@@ -4,9 +4,8 @@ import api from "../services/api";
 
 export default function Operacoes() {
   const location = useLocation();
-  const titularInicial = location.state?.titular || ""; // titular vindo da tela anterior
+  const titular = location.state?.titular || "";
 
-  const [titular, setTitular] = useState(titularInicial);
   const [valor, setValor] = useState("");
   const [mensagem, setMensagem] = useState("");
 
@@ -52,13 +51,9 @@ export default function Operacoes() {
       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-6">Operações Bancárias</h1>
 
-        <input
-          type="text"
-          placeholder="Titular"
-          className="w-full border rounded-md p-3 mb-4"
-          value={titular}
-          onChange={(e) => setTitular(e.target.value)}
-        />
+        <p className="text-center mb-4 text-gray-700">
+          Titular da conta: <strong>{titular}</strong>
+        </p>
 
         <input
           type="number"
